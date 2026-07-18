@@ -46,6 +46,17 @@ service cloud.firestore {
       allow delete: if isAdmin();
     }
 
+    // --- Requesters ---
+    // Same ownership pattern as donors: a signed-in user can read any
+    // requester profile (needed for donor-side display of who posted a
+    // request) but can only create/update their OWN doc.
+    match /requesters/{requesterId} {
+      allow read: if isSignedIn();
+      allow create: if isOwner(requesterId);
+      allow update: if isOwner(requesterId) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
     // --- Requests ---
     match /requests/{requestId} {
       allow read: if isSignedIn();
