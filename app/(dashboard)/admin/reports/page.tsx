@@ -1,6 +1,8 @@
 import DashboardShell from "@/components/shells/DashboardShell";
 import ReportsCharts, { ReportsData } from "@/components/organisms/ReportsCharts";
 import { adminDb } from "@/lib/firebase-admin";
+
+export const dynamic = "force-dynamic";
 import type { BloodRequest, BloodType, Donor } from "@/types/donor";
 
 const ALL_BLOOD_TYPES: BloodType[] = ["O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-"];

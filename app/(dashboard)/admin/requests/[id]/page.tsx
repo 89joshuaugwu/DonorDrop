@@ -4,6 +4,8 @@ import RequestDetail from "@/components/organisms/RequestDetail";
 import { adminDb } from "@/lib/firebase-admin";
 import type { BloodRequest, RequestResponse } from "@/types/donor";
 
+export const dynamic = "force-dynamic";
+
 async function getRequestWithResponses(id: string) {
   const db = adminDb();
   const requestSnap = await db.collection("requests").doc(id).get();

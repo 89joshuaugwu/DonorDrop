@@ -1,6 +1,13 @@
 import DashboardShell from "@/components/shells/DashboardShell";
 import Card from "@/components/ui/Card";
 import { adminDb } from "@/lib/firebase-admin";
+
+// This page queries Firestore for live stats — it must never be
+// statically generated at build time (which would bake in stale
+// numbers, and fails the build anyway since real Firebase Admin
+// credentials aren't available during `next build`). Every protected
+// admin page in this app needs this same line.
+export const dynamic = "force-dynamic";
 import { Users, ClipboardList, Droplet } from "lucide-react";
 
 async function getStats() {

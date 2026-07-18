@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ADMIN_SESSION_COOKIE_NAME } from "@/lib/auth";
+import { ADMIN_SESSION_COOKIE_NAME } from "@/lib/constants";
 
 // NOTE: Edge middleware can't call firebase-admin's Node SDK directly, so
 // this does a lightweight presence check (cookie exists). Full claim

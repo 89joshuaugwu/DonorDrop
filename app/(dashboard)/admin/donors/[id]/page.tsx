@@ -4,6 +4,8 @@ import DonorDetail from "@/components/organisms/DonorDetail";
 import { adminDb } from "@/lib/firebase-admin";
 import type { Donor } from "@/types/donor";
 
+export const dynamic = "force-dynamic";
+
 async function getDonor(id: string): Promise<Donor | null> {
   const db = adminDb();
   const snap = await db.collection("donors").doc(id).get();

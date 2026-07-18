@@ -1,6 +1,8 @@
 import DashboardShell from "@/components/shells/DashboardShell";
 import RequestsTable from "@/components/organisms/RequestsTable";
 import { adminDb } from "@/lib/firebase-admin";
+
+export const dynamic = "force-dynamic";
 import type { BloodRequest } from "@/types/donor";
 
 async function getRequests(): Promise<BloodRequest[]> {

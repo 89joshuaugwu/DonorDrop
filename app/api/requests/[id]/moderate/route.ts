@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { adminDb } from "@/lib/firebase-admin";
-import { verifyAdminSession, ADMIN_SESSION_COOKIE_NAME } from "@/lib/auth";
+import { verifyAdminSession } from "@/lib/auth";
+import { ADMIN_SESSION_COOKIE_NAME } from "@/lib/constants";
 
 export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
   const sessionCookie = cookies().get(ADMIN_SESSION_COOKIE_NAME)?.value;

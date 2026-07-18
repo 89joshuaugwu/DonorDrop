@@ -1,7 +1,8 @@
 import { cookies } from "next/headers";
 import { adminAuth } from "./firebase-admin";
+import { ADMIN_SESSION_COOKIE_NAME } from "./constants";
 
-const SESSION_COOKIE = "donordrop_admin_session";
+const SESSION_COOKIE = ADMIN_SESSION_COOKIE_NAME;
 const SESSION_EXPIRY_MS = 60 * 60 * 24 * 5 * 1000; // 5 days
 
 /**
@@ -47,5 +48,3 @@ export async function verifyAdminSession(sessionCookie: string | undefined) {
 export function clearAdminSession() {
   cookies().delete(SESSION_COOKIE);
 }
-
-export const ADMIN_SESSION_COOKIE_NAME = SESSION_COOKIE;

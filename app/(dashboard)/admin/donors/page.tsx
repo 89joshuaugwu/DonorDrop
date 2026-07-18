@@ -1,6 +1,8 @@
 import DashboardShell from "@/components/shells/DashboardShell";
 import DonorsTable from "@/components/organisms/DonorsTable";
 import { adminDb } from "@/lib/firebase-admin";
+
+export const dynamic = "force-dynamic";
 import type { Donor } from "@/types/donor";
 
 async function getDonors(): Promise<Donor[]> {
